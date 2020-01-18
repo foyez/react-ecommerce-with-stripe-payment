@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
+import Layout from './Layout/Layout.jsx';
 import Homepage from './pages/homepage/Homepage.jsx';
 import ShopPage from './pages/shop/Shop.jsx';
 
@@ -13,9 +14,9 @@ const App = () => {
   );
 
   return (
-    <div>
+    <Layout>
       { routes }
-    </div>
+    </Layout>
   );
 }
 
