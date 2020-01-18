@@ -1,11 +1,18 @@
 import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 
 import Homepage from './pages/homepage/Homepage.jsx';
 
-function App() {
+const App = () => {
+  const routes = (
+    <Switch>
+      <Route path='/' exact component={ Homepage } />
+    </Switch>
+  );
+
   return (
     <div>
-      <Homepage />
+      { routes }
     </div>
   );
 }
