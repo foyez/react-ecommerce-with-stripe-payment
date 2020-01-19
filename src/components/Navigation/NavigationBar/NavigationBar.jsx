@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 
 import './NavigationBar.scss';
 import { ReactComponent as Logo } from '../../../assets/img/crown.svg';
-import NavigationItems from '../NavigationItems/NavigationItems.jsx';
+import NavigationItems from '../NavigationItems/NavigationItems';
 
-const NavigationBar = () => (
+const NavigationBar = ({ currentUser }) => (
   <div className="navigation-bar">
     <Link className='logo-container' to='/'>
       <Logo className='logo' />
     </Link>
-    <NavigationItems />
+    <NavigationItems currentUser={ currentUser } />
   </div>
 );
 
