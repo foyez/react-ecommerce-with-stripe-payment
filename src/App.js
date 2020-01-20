@@ -1,17 +1,28 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
-import Layout from './Layout/Layout.jsx';
-import Homepage from './pages/homepage/Homepage.jsx';
-import ShopPage from './pages/shop/Shop.jsx';
+import { connect } from 'react-redux';
+
+import Layout from './Layout/Layout';
+import Homepage from './pages/homepage/Homepage';
+import ShopPage from './pages/shop/Shop';
 import Auth from './pages/Auth/Auth';
 
-const App = () => {
+const App = ({ currentUser }) => {
   const routes = (
     <Switch>
-      <Route path='/' exact component={ Homepage } />
+      <Route exact path='/' component={ Homepage } />
       <Route path='/shop' component={ ShopPage } />
-      <Route path='/auth' component={ Auth } />
+      {/* <Route path='/auth' component={ Auth } /> */ }
+      <Route
+        path='/auth'
+        render={ () => currentUser ? (
+          <Redirect to='/' />
+        ) : (
+            <Auth />
+          ) }
+      />
+      <Redirect to='/' />
     </Switch>
   );
 
@@ -22,4 +33,8 @@ const App = () => {
   );
 }
 
-export default App;
+const mapStateToProps = state => ({
+  currentUser: state.user.currentUser,
+});
+
+export default connect(mapStateToProps)(App);

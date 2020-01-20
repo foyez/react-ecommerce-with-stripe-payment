@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { connect } from 'react-redux';
-
 import './NavigationBar.scss';
 import { ReactComponent as Logo } from '../../../assets/img/crown.svg';
 import NavigationItems from '../NavigationItems/NavigationItems';
@@ -12,12 +10,8 @@ const NavigationBar = ({ currentUser }) => (
     <Link className='logo-container' to='/'>
       <Logo className='logo' />
     </Link>
-    <NavigationItems currentUser={ currentUser } />
+    <NavigationItems />
   </div>
 );
 
-const mapStateToProps = state => ({
-  currentUser: state.user.currentUser,
-});
-
-export default connect(mapStateToProps)(NavigationBar);
+export default NavigationBar;
