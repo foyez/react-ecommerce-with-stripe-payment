@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import './NavigationItems.scss';
 import NavigationItem from './NavigationItem/NavigationItem';
 import { auth } from '../../../firebase/firebase.utils';
+import CartIcon from '../../CartIcon/CartIcon';
 
 const NavigationItems = ({ currentUser }) => {
   const guestLinks = (
@@ -12,6 +13,7 @@ const NavigationItems = ({ currentUser }) => {
       <NavigationItem link='/shop'>SHOP</NavigationItem>
       <NavigationItem link='/contact'>CONTACT</NavigationItem>
       <NavigationItem link='/auth'>SIGN IN</NavigationItem>
+      <CartIcon />
     </div>
   );
 
@@ -25,6 +27,7 @@ const NavigationItems = ({ currentUser }) => {
       >
         SIGN OUT
       </div>
+      <CartIcon />
     </div>
   );
 
