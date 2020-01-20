@@ -2,14 +2,7 @@ import React from 'react';
 
 // import Header from '../components/Header/Header.jsx';
 import NavigationBar from '../components/Navigation/NavigationBar/NavigationBar';
-import { auth } from '../firebase/firebase.utils';
-
-// const Layout = ({ children }) => (
-//   <div>
-//     <NavigationBar />
-//     { children }
-//   </div>
-// );
+import { auth, createUserProfileDocument } from '../firebase/firebase.utils';
 
 class Layout extends React.Component {
   constructor(props) {
@@ -23,10 +16,20 @@ class Layout extends React.Component {
   unsubscribeFromAuth = null;
 
   componentDidMount() {
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(user => {
-      this.setState({ currentUser: user });
-
-      console.log(user);
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+      if (userAuth) {
+        const userRef = await createUserProfileDocument(userAuth);
+        userRef.onSnapshot(snapshot => {
+          this.setState({
+            currentUser: {
+              id: snapshot.id,
+              ...snapshot.data(),
+            }
+          }, () => console.log(this.state));
+        });
+      } else {
+        this.setState({ currentUser: userAuth });
+      }
     })
   }
 
