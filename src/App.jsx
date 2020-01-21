@@ -5,26 +5,29 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { selectCurrentUser } from './redux/user/user.selectors';
 
-import Layout from './Layout/Layout';
 import Homepage from './pages/homepage/Homepage';
 import ShopPage from './pages/shop/Shop';
-import Auth from './pages/Auth/Auth';
+import AuthPage from './pages/Auth/Auth';
+import CheckoutPage from './pages/checkout/Checkout'
+
+import Layout from './Layout/Layout';
 
 const App = ({ currentUser }) => {
   const routes = (
     <Switch>
       <Route exact path='/' component={ Homepage } />
       <Route path='/shop' component={ ShopPage } />
+      <Route path='/checkout' component={ CheckoutPage } />
       {/* <Route path='/auth' component={ Auth } /> */ }
       <Route
         path='/auth'
         render={ () => currentUser ? (
           <Redirect to='/' />
         ) : (
-            <Auth />
+            <AuthPage />
           ) }
       />
-      <Redirect to='/' />
+      {/* <Redirect to='/' /> */ }
     </Switch>
   );
 
