@@ -2,9 +2,9 @@ import React from 'react';
 
 import './Button.scss';
 
-const Button = ({ children, isGoogle, ...rest }) => (
+const Button = ({ children, isGoogle, inverted, ...rest }) => (
   <button
-    className={ `${isGoogle && 'google'} btn` }
+    className={ `${inverted && 'inverted'} ${isGoogle && 'google'} btn` }
     { ...rest }
   >
     { children }
