@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { connect } from 'react-redux';
+import { selectShowCart } from '../../../redux/cart/cart.selectors';
 
 import './NavigationBar.scss';
 import { ReactComponent as Logo } from '../../../assets/img/crown.svg';
@@ -18,8 +19,8 @@ const NavigationBar = ({ showCart }) => (
   </div>
 );
 
-const mapStateToProps = ({ cart: { showCart } }) => ({
-  showCart,
+const mapStateToProps = state => ({
+  showCart: selectShowCart(state),
 });
 
 export default connect(mapStateToProps)(NavigationBar);
