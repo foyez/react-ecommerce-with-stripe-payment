@@ -7,7 +7,7 @@ import { selectCurrentUser } from './redux/user/user.selectors';
 
 import Homepage from './pages/homepage/Homepage';
 import ShopPage from './pages/shop/Shop';
-import AuthPage from './pages/Auth/Auth';
+import AuthPage from './pages/auth/Auth';
 import CheckoutPage from './pages/checkout/Checkout'
 
 import Layout from './Layout/Layout';
