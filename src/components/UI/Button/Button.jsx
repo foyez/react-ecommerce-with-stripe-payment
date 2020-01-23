@@ -1,14 +1,11 @@
 import React from 'react';
 
-import './Button.scss';
+import { ButtonContainer } from './Button.styles';
 
-const Button = ({ children, isGoogle, inverted, ...rest }) => (
-  <button
-    className={ `${inverted && 'inverted'} ${isGoogle && 'google'} btn` }
-    { ...rest }
-  >
+const Button = ({ children, ...rest }) => (
+  <ButtonContainer { ...rest }>
     { children }
-  </button>
+  </ButtonContainer>
 );
 
 export default Button;
