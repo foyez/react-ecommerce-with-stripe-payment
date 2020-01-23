@@ -23,12 +23,12 @@ const NavigationItems = ({ currentUser }) => {
     <div className="navigation-items">
       <NavigationItem link='/shop'>SHOP</NavigationItem>
       <NavigationItem link='/contact'>CONTACT</NavigationItem>
-      <div
-        className='navigation-item'
-        onClick={ () => auth.signOut() }
+      <NavigationItem
+        div={ true }
+        clicked={ () => auth.signOut() }
       >
         SIGN OUT
-      </div>
+      </NavigationItem>
       <CartIcon />
     </div>
   );
