@@ -7,7 +7,7 @@ import { selectCurrentUser } from '../../../redux/user/user.selectors';
 import NavigationItem from './NavigationItem/NavigationItem';
 import { auth } from '../../../firebase/firebase.utils';
 import CartIcon from '../../CartIcon/CartIcon';
-import { NavItems, NavItem } from './NavigationItems.styles'
+import { NavItems } from './NavigationItems.styles'
 
 const NavigationItems = ({ currentUser }) => {
   const guestLinks = (
@@ -23,11 +23,12 @@ const NavigationItems = ({ currentUser }) => {
     <NavItems>
       <NavigationItem link='/shop'>SHOP</NavigationItem>
       <NavigationItem link='/contact'>CONTACT</NavigationItem>
-      <NavItem
+      <NavigationItem
+        div={ true }
         onClick={ () => auth.signOut() }
       >
         SIGN OUT
-      </NavItem>
+      </NavigationItem>
       <CartIcon />
     </NavItems>
   );

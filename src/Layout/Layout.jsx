@@ -34,10 +34,10 @@ class Layout extends React.Component {
 
   render() {
     return (
-      <div>
+      <>
         <NavigationBar />
         { this.props.children }
-      </div>
+      </>
     )
   }
 }

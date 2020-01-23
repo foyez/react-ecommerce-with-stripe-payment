@@ -1,14 +1,19 @@
 import React from 'react';
 
-import { NavItem } from './NavigationItem.styles'
+import { NavItem, NavItemDiv } from './NavigationItem.styles'
 
-const NavigationItem = ({ link, exact, children }) => (
-  <NavItem
-    to={ link }
-    exact={ exact }
-  >
-    { children }
-  </NavItem>
-);
+const NavigationItem = ({ link, exact, div, children }) => {
+  const item = div ? (
+    <NavItemDiv>{ children }</NavItemDiv>
+  ) : (
+      <NavItem
+        to={ link }
+        exact={ exact }
+      >
+        { children }
+      </NavItem>
+    );
+  return item;
+}
 
 export default NavigationItem;
