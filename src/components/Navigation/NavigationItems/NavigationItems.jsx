@@ -4,33 +4,32 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { selectCurrentUser } from '../../../redux/user/user.selectors';
 
-import './NavigationItems.scss';
 import NavigationItem from './NavigationItem/NavigationItem';
 import { auth } from '../../../firebase/firebase.utils';
 import CartIcon from '../../CartIcon/CartIcon';
+import { NavItems, NavItem } from './NavigationItems.styles'
 
 const NavigationItems = ({ currentUser }) => {
   const guestLinks = (
-    <div className="navigation-items">
+    <NavItems>
       <NavigationItem link='/shop'>SHOP</NavigationItem>
       <NavigationItem link='/contact'>CONTACT</NavigationItem>
       <NavigationItem link='/auth'>SIGN IN</NavigationItem>
       <CartIcon />
-    </div>
+    </NavItems>
   );
 
   const authLinks = (
-    <div className="navigation-items">
+    <NavItems>
       <NavigationItem link='/shop'>SHOP</NavigationItem>
       <NavigationItem link='/contact'>CONTACT</NavigationItem>
-      <div
-        className='navigation-item'
+      <NavItem
         onClick={ () => auth.signOut() }
       >
         SIGN OUT
-      </div>
+      </NavItem>
       <CartIcon />
-    </div>
+    </NavItems>
   );
 
   return currentUser ? authLinks : guestLinks;

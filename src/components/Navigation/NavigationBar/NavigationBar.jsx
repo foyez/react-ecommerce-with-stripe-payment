@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 import { selectShowCart } from '../../../redux/cart/cart.selectors';
@@ -8,15 +7,16 @@ import './NavigationBar.scss';
 import { ReactComponent as Logo } from '../../../assets/img/crown.svg';
 import NavigationItems from '../NavigationItems/NavigationItems';
 import CartDropdown from '../../CartDropdown/CartDropdown';
+import { NavBarContainer, LogoContainer } from './NavigationBar.styles';
 
 const NavigationBar = ({ showCart }) => (
-  <div className="navigation-bar">
-    <Link className='logo-container' to='/'>
+  <NavBarContainer>
+    <LogoContainer to='/'>
       <Logo className='logo' />
-    </Link>
+    </LogoContainer>
     <NavigationItems />
     { showCart && <CartDropdown /> }
-  </div>
+  </NavBarContainer>
 );
 
 const mapStateToProps = state => ({
