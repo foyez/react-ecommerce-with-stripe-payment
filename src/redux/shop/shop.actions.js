@@ -24,7 +24,6 @@ export const fetchCollectionsStartAsync = () => async dispatch => {
     const snapshot = await collectionsRef.get();
     const collectionsMap = convertCollectionSnapshotToMap(snapshot);
     dispatch(fetchCollectionsSuccess(collectionsMap));
-    this.setState({ isLoading: false });
   } catch (error) {
     dispatch(fetchCollectionsFailure(error.message))
   }
