@@ -10,7 +10,7 @@ import ShopPage from './pages/shop/Shop';
 import AuthPage from './pages/auth/Auth';
 import CheckoutPage from './pages/checkout/Checkout'
 
-import Layout from './Layout/Layout';
+import Layout from './layout/Layout';
 
 const App = ({ currentUser }) => {
   const routes = (
