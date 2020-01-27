@@ -3,13 +3,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { selectCurrentUser } from '../../../redux/user/user.selectors';
+import { signOutStart } from '../../../redux/user/user.actions';
 
 import './NavigationItems.scss';
 import NavigationItem from './NavigationItem/NavigationItem';
-import { auth } from '../../../firebase/firebase.utils';
 import CartIcon from '../../CartIcon/CartIcon';
 
-const NavigationItems = ({ currentUser }) => {
+const NavigationItems = ({ currentUser, dispatch }) => {
   const guestLinks = (
     <div className="navigation-items">
       <NavigationItem link='/shop'>SHOP</NavigationItem>
@@ -25,7 +25,7 @@ const NavigationItems = ({ currentUser }) => {
       <NavigationItem link='/contact'>CONTACT</NavigationItem>
       <NavigationItem
         div={ true }
-        clicked={ () => auth.signOut() }
+        clicked={ () => dispatch(signOutStart()) }
       >
         SIGN OUT
       </NavigationItem>
