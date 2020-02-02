@@ -1,15 +1,19 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap');
 
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 body {
-  font-family: 'Open Sans Condensed';
-  padding: 20px 60px;
+	font-family: 'Open Sans Condensed';
+	padding: 20px 40px;
+
+	@media screen and (max-width: 800px) {
+		padding: 10px;
+	}
 }
 
 a {
-  text-decoration: none;
-  color: #000;
+	text-decoration: none;
+	color: #000;
 }

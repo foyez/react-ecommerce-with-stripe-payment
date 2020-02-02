@@ -1,7 +1,11 @@
-.navigation-items  {
-  width: 50%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
+.navigation-items {
+	width: 50%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+
+	@media screen and (max-width: 800px) {
+		width: 80%;
+	}
 }
